@@ -28,14 +28,13 @@ export const theme = {
         }
     },
     colors: {
-        primary: '#000',
-        secondary: '#000',
-        mainBg: '#000',
-        secondaryBg: '#000',
-        primaryText: '#000',
+		primary: '#4B7CB9',
+		secondary: '#E5ECF0',
+		mainBg: '#D6E3EC',
+		primaryText: '#6F7C87',
         secondaryText: '#000',
-        black: '#000',
-        white: '#fff',
+		white: '#FFFFFF',
+		red: '#FF5A5A',
     },
     spacings: {
         xxsmall: '0.8rem',
