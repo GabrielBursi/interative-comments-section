@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 
 import { CommentCardProps } from './types'
 import * as S from './styles'

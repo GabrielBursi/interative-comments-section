@@ -16,6 +16,7 @@ export const Content = styled.div`
 		display: flex;
 		flex-direction: column;
 		gap: ${theme.spacings.xxsmall};
+		width: 100%;
 	`}
 `
 

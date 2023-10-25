@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { lighten } from "polished";
