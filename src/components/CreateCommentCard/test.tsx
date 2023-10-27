@@ -6,6 +6,8 @@ describe('<CreateCommentCard/>', () => {
     it('should render', () => {
         render(<CreateCommentCard/>)
 
-        expect(screen.getByRole('heading', { name: /CreateCommentCard/i })).toBeInTheDocument()
+		expect(screen.getByAltText(/Avatar do usuário/i)).toBeInTheDocument()
+		expect(screen.getByPlaceholderText(/Adicione um comentário\.../i)).toBeInTheDocument()
+		expect(screen.getByRole('button', { name: /enviar/i })).toBeInTheDocument()
     })
 })
