@@ -35,6 +35,7 @@ export const theme = {
         secondaryText: '#000',
 		white: '#FFFFFF',
 		red: '#FF5A5A',
+		green: '#4CAF50'
     },
     spacings: {
         xxsmall: '0.8rem',

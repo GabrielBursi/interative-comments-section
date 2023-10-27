@@ -14,11 +14,14 @@ export const ScoreControl = styled.div`
     `}
 `
 
-export const IconContainer = styled.div`
+export const ButtonScore = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	outline: none;
+	background-color: transparent;
+	border: none;
 `
 
 export const ScoreNumber = styled.span`
