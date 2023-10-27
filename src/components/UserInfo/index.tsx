@@ -8,6 +8,26 @@ import { theme } from '../../styles'
 import AvatarDefault from '../../../public/images/avatars/default.png'
 
 export const UserInfo = ({ createdAt, user, isOwn }: UserInfoProps) => {
+
+	const formatData = (isoDate: string) => {
+		const data = new Date(isoDate);
+		const agora = new Date();
+
+		const diferenca = agora.getTime() - data.getTime()
+
+		if (diferenca < 60 * 1000) {
+			return `${Math.floor(diferenca / 1000)} segundos atrás`;
+		} else if (diferenca < 60 * 60 * 1000) {
+			return `${Math.floor(diferenca / (60 * 1000))} minutos atrás`;
+		} else if (diferenca < 24 * 60 * 60 * 1000) {
+			return `${Math.floor(diferenca / (60 * 60 * 1000))} horas atrás`;
+		} else if (diferenca < 7 * 24 * 60 * 60 * 1000) {
+			return `${Math.floor(diferenca / (24 * 60 * 60 * 1000))} dias atrás`;
+		} else {
+			return `${Math.floor(diferenca / (7 * 24 * 60 * 60 * 1000))} semanas atrás`;
+		}
+	};
+
 	return (
 		<S.UserInfo>
 			<S.UserContainer>
@@ -19,7 +39,7 @@ export const UserInfo = ({ createdAt, user, isOwn }: UserInfoProps) => {
 					{isOwn && <S.IsOwnText>você</S.IsOwnText>}
 				</S.UserName>
 				<S.CreatedAtText>
-					{createdAt}
+					{formatData(createdAt)}
 				</S.CreatedAtText>
 			</S.UserContainer>
 			<S.ActionsContainer>

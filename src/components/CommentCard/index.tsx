@@ -6,7 +6,7 @@ import * as S from './styles'
 import { ScoreControl } from '..'
 import { UserInfo } from '../UserInfo'
 
-export const CommentCard = ({ isOwn = false, mentionedUser, content, createdAt, score, user }: CommentCardProps) => {
+export const CommentCard = ({ isOwn = false, mentionedUser, content, createdAt, score, user, id }: CommentCardProps) => {
 	return (
 		<S.CommentCard>
 			<ScoreControl score={score} />
