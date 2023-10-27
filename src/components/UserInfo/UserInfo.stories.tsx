@@ -7,7 +7,7 @@ const meta: Meta<typeof UserInfo> ={
     title: 'UserInfo',
     component: UserInfo,
 	args: {
-		createdAt: '1 week ago',
+		createdAt: "2023-10-25T09:15:00Z",
 		user: {
 			username: 'blodehot',
 		},
