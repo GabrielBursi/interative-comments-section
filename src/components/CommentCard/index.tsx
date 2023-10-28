@@ -1,10 +1,9 @@
 'use client'
 
-import { CommentCardProps } from './types'
 import * as S from './styles'
+import { CommentCardProps } from './types'
 
-import { ScoreControl } from '..'
-import { UserInfo } from '../UserInfo'
+import { ScoreControl, UserInfo } from '..'
 
 export const CommentCard = ({ isOwn = false, mentionedUser, content, createdAt, score, user, id }: CommentCardProps) => {
 	return (
