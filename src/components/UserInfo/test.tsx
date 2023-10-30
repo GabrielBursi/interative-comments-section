@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import { formatDistanceToNow } from 'date-fns';
 import { render } from '../../utils'
 import { UserInfo } from '.'
 import { User } from '@/types'
@@ -9,7 +10,8 @@ const user: User = {
 	avatar: DefaultAvatar.src
 }
 
-const createAt = '2023-10-25T09:15:00Z'
+const createAt = '2023-10-25T09:15:00Z';
+const formattedDate = formatDistanceToNow(new Date(createAt), { addSuffix: true });
 
 describe('<UserInfo/>', () => {
     it('should render', () => {
@@ -18,7 +20,7 @@ describe('<UserInfo/>', () => {
 		expect(screen.getByRole('img')).toBeInTheDocument()
 		expect(screen.getByText(`${user.username}`)).toBeInTheDocument()
 		expect(screen.getByText(/você/i)).toBeInTheDocument()
-		expect(screen.getByText(/2 dias atrás/i)).toBeInTheDocument()
+		expect(screen.getByText(formattedDate)).toBeInTheDocument()
 		expect(screen.getByRole('button', { name: /Excluir/i })).toBeInTheDocument()
 		expect(screen.getByRole('button', { name: /Editar/i })).toBeInTheDocument()
 
@@ -26,11 +28,11 @@ describe('<UserInfo/>', () => {
     })
 
 	it('should render without isOwn prop', () => {
-		render(<UserInfo createdAt={createAt} user={{...user}}/>)
+		render(<UserInfo createdAt={createAt} user={{...user}} isOwn={false}/>)
 
 		expect(screen.getByRole('img')).toBeInTheDocument()
 		expect(screen.getByText(`${user.username}`)).toBeInTheDocument()
-		expect(screen.getByText(/2 dias atrás/i)).toBeInTheDocument()
+		expect(screen.getByText(formattedDate)).toBeInTheDocument()
 		expect(screen.getByRole('button', { name: /Responder/i })).toBeInTheDocument()
 
 		expect(screen.queryByRole('button', { name: /Excluir/i })).not.toBeInTheDocument()
