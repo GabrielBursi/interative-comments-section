@@ -1,5 +1,6 @@
 import { styled, css } from "styled-components";
 import { darken } from 'polished'
+import media from "styled-media-query";
 
 type ButtonProps = {
 	variant?: 'danger' | 'normal',
@@ -9,14 +10,27 @@ export const UserInfo = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	${media.lessThan('medium')`
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+	`}
 `
 
-export const UserContainer = styled.div`
+export const InfoAndActionsContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex: 1;
+	width: 100%;
+`
+
+export const UserData = styled.div`
 	${({ theme }) => css`
 		display: flex;
 		align-items: center;
 		gap: ${theme.spacings.xxsmall};
-		flex: 1;
 	`}
 `
 
@@ -27,6 +41,11 @@ export const Avatar = styled.div`
 		border-radius: 50%;
 		overflow: hidden;
 		background-color: ${theme.colors.mainBg};
+
+		${media.lessThan('medium')`
+			width: 30px;
+			height: 30px;
+		`}
 	`}
 `;
 
@@ -44,6 +63,10 @@ export const UserName = styled.span`
 		display: flex;
 		align-items: center;
 		gap: ${theme.spacings.xxsmall};
+
+		${media.lessThan('medium')`
+			font-size: ${theme.font.sizes.medium};
+		`}
 	`}
 `
 
@@ -65,6 +88,11 @@ export const CreatedAtText = styled.span`
 		font-size: ${theme.font.sizes.medium};
 		font-weight: ${theme.font.bold};
 		margin-left: ${theme.spacings.small};
+
+		${media.lessThan('medium')`
+			font-size: ${theme.font.sizes.small};
+			margin-left: 0;
+		`}
 	`}
 `
 
@@ -73,11 +101,15 @@ export const ActionsContainer = styled.div`
 		display: flex;
 		align-items: center;
 		gap: ${theme.spacings.xsmall};
+
+		${media.lessThan('medium')`
+			gap: ${theme.spacings.xxsmall};
+		`}
 	`}
 `
 
 export const ButtonAction = styled.button<ButtonProps>`
-	${({ theme, variant='normal' }) => css`
+	${({ theme, variant = 'normal' }) => css`
 		display: flex;
 		align-items: center;
 		gap: ${theme.spacings.xxsmall};
@@ -98,5 +130,15 @@ export const ButtonAction = styled.button<ButtonProps>`
 		&:active {
 			transform: scale(0.95);
 		}
+
+		${media.lessThan('medium')`
+			font-size: ${theme.font.sizes.small};
+		`}
+	`}
+`
+
+export const ButtonText = styled.span`
+	${media.lessThan('medium')`
+		display: none;
 	`}
 `

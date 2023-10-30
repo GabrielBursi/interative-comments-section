@@ -1,16 +1,23 @@
 import { styled, css } from "styled-components";
+import media from "styled-media-query";
 
 export const ScoreControl = styled.div`
     ${({ theme }) => css`
 		border-radius: ${theme.border.radius.small};
 		padding: ${theme.spacings.xxsmall};
-		height: 85%;
+		height: fit-content;
 		background-color: ${theme.colors.mainBg};
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		max-width: 60px;
+		gap: ${theme.spacings.xsmall};
+
+		${media.lessThan('medium')`
+			gap: ${theme.spacings.xxsmall};
+			width: 100%;
+			flex-direction: row;
+		`}
     `}
 `
 
@@ -29,5 +36,9 @@ export const ScoreNumber = styled.span`
 		font-size: ${theme.font.sizes.large};
 		color: ${theme.colors.primary};
 		font-weight: ${theme.font.bold};
+
+		${media.lessThan('medium')`
+			font-size: ${theme.font.sizes.medium};
+		`}
 	`}
 `

@@ -30,7 +30,7 @@ export const UserInfo = ({ createdAt, user, isOwn }: UserInfoProps) => {
 
 	return (
 		<S.UserInfo>
-			<S.UserContainer>
+			<S.UserData>
 				<S.Avatar>
 					<S.AvatarImage src={user.avatar ?? AvatarDefault.src} alt={`Avatar do usuário: ${user.username}`} />
 				</S.Avatar>
@@ -38,29 +38,31 @@ export const UserInfo = ({ createdAt, user, isOwn }: UserInfoProps) => {
 					{user.username}
 					{isOwn && <S.IsOwnText>você</S.IsOwnText>}
 				</S.UserName>
+			</S.UserData>
+			<S.InfoAndActionsContainer>
 				<S.CreatedAtText>
 					{formatData(createdAt)}
 				</S.CreatedAtText>
-			</S.UserContainer>
-			<S.ActionsContainer>
-				{isOwn ?
-					<>
-						<S.ButtonAction variant='danger'>
-							<FaTrash size={15} />
-							Excluir
-						</S.ButtonAction>
+				<S.ActionsContainer>
+					{isOwn ?
+						<>
+							<S.ButtonAction variant='danger'>
+								<FaTrash size={15} />
+								<S.ButtonText>Excluir</S.ButtonText>
+							</S.ButtonAction>
+							<S.ButtonAction>
+								<FaPencil size={15} color={theme.colors.primary} />
+								<S.ButtonText>Editar</S.ButtonText>
+							</S.ButtonAction>
+						</>
+						:
 						<S.ButtonAction>
-							<FaPencil size={15} color={theme.colors.primary} />
-							Editar
+							<FaReply size={15} color={theme.colors.primary} />
+							<S.ButtonText>Responder</S.ButtonText>
 						</S.ButtonAction>
-					</>
-					:
-					<S.ButtonAction>
-						<FaReply size={15} color={theme.colors.primary} />
-						Responder
-					</S.ButtonAction>
-				}
-			</S.ActionsContainer>
+					}
+				</S.ActionsContainer>
+			</S.InfoAndActionsContainer>
 		</S.UserInfo>
 	)
 }
