@@ -2,7 +2,7 @@ import { styled, css } from "styled-components";
 import media from "styled-media-query";
 
 type TextProps = {
-	showFullText?: boolean
+	$showFullText?: boolean
 }
 
 export const CommentCard = styled.div`
@@ -33,13 +33,13 @@ export const Content = styled.div`
 `
 
 export const Text = styled.p<TextProps>`
-	${({ theme, showFullText=false }) => css`
+	${({ theme, $showFullText=false }) => css`
 		color: ${theme.colors.primaryText};
 		font-size: ${theme.font.sizes.medium};
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
-		-webkit-line-clamp: ${showFullText ? 0 : 5}; /* Número de linhas que você deseja exibir antes do corte */
+		-webkit-line-clamp: ${$showFullText ? 0 : 5};
 		-webkit-box-orient: vertical;
 
 		${media.lessThan('medium')`

@@ -22,7 +22,7 @@ export const CommentCard = ({ isOwn = false, mentionedUser, content, createdAt, 
 			<ScoreControl score={score} />
 			<S.Content>
 				<UserInfo user={user} createdAt={createdAt} isOwn={isOwn} />
-				<S.Text showFullText={showFullText}>
+				<S.Text $showFullText={showFullText}>
 					{mentionedUser &&
 						<S.MentionedUser>
 							@{mentionedUser}
