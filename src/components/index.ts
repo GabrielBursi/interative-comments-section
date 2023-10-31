@@ -1,5 +1,6 @@
 export * from './CommentCard'
 export * from './Container'
 export * from './CreateCommentCard'
+export * from './ModalDelete'
 export * from './ScoreControl'
 export * from './UserInfo'
