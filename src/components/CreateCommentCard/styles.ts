@@ -1,5 +1,6 @@
 import { styled, css } from "styled-components";
 import { darken } from 'polished';
+import media from "styled-media-query";
 
 export const CreateCommentCard = styled.div`
     ${({ theme }) => css`
@@ -10,6 +11,12 @@ export const CreateCommentCard = styled.div`
 		display: flex;
 		justify-content: space-between;
 		gap: ${theme.spacings.xsmall};
+
+		${media.lessThan('medium')`
+			padding: ${theme.spacings.xsmall};
+			gap: ${theme.spacings.xxsmall};
+			flex-direction: column;
+		`}
     `}
 `
 
@@ -20,6 +27,11 @@ export const Avatar = styled.div`
 		border-radius: 50%;
 		overflow: hidden;
 		background-color: ${theme.colors.mainBg};
+
+		${media.lessThan('medium')`
+			width: 20px;
+			height: 20px;
+		`}
 	`}
 `;
 
@@ -65,6 +77,11 @@ export const TextArea = styled.textarea`
 		&::-webkit-scrollbar-track {
 			background-color: ${theme.colors.mainBg};
 		}
+
+		${media.lessThan('medium')`
+			padding: ${theme.spacings.xxsmall} ${theme.spacings.xxsmall};
+			font-size: ${theme.font.sizes.small};
+		`}
 	`}
 `
 
@@ -95,5 +112,21 @@ export const BtnSend = styled.button`
 		&:active {
 			transform: scale(0.95);
 		}
+
+		${media.lessThan('medium')`
+			font-size: ${theme.font.sizes.small};
+		`}
+	`}
+`
+
+export const MentionedUser = styled.span`
+	${({ theme }) => css`
+		color: ${theme.colors.primary};
+		font-size: ${theme.font.sizes.medium};
+		font-weight: ${theme.font.bold};
+
+		${media.lessThan('medium')`
+			font-size: ${theme.font.sizes.small};
+		`}
 	`}
 `

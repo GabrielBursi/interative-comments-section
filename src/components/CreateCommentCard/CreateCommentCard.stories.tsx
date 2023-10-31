@@ -27,3 +27,9 @@ export const Basic: Story = {
 
     }
 }
+
+export const ReplieComment: Story = {
+	args: {
+		mentionedUser: 'abc'
+	}
+}
