@@ -13,7 +13,7 @@ describe('<ScoreControl/>', () => {
 		expect(screen.getAllByRole('button')).toHaveLength(2)
     })
 
-	it('Increment and decrement score', async () => {
+	it('should increment and decrement score', async () => {
 		render(<ScoreControl score={score}/>)
 
 		userEvent.setup()
@@ -26,5 +26,21 @@ describe('<ScoreControl/>', () => {
 		expect(scoreElement).toHaveTextContent(`${score + 1}`)
 		await userEvent.click(botaoDecrementar)
 		expect(scoreElement).toHaveTextContent(`${score - 1}`)
+	})
+
+	it('should change color icon', async () => {
+		render(<ScoreControl score={score} />)
+
+		userEvent.setup()
+
+		const botaoIncrementar = screen.getByRole('button', { name: /Incrementar Pontuação/i });
+		const botaoDecrementar = screen.getByRole('button', { name: /Decrementar Pontuação/i });
+		const iconIncrementar = screen.getByTestId('icone-incrementar')
+		const iconDecrementar = screen.getByTestId('icone-decrementar')
+
+		await userEvent.click(botaoIncrementar)
+		expect(iconIncrementar).toHaveStyle('color: #4CAF50')
+		await userEvent.click(botaoDecrementar)
+		expect(iconDecrementar).toHaveStyle('color: #FF5A5A')
 	})
 })
