@@ -9,8 +9,18 @@ const meta: Meta<typeof UserInfo> ={
 	args: {
 		createdAt: "2023-10-25T09:15:00Z",
 		user: {
-			username: 'blodehot',
+			username: 'blondehot',
 		},
+		id: 1,
+		onEdit: () => ''
+	},
+	argTypes: {
+		onEdit: {
+			type: 'symbol'
+		},
+		createdAt: {
+			control: 'date'
+		}
 	},
 	parameters: {
 		layout: 'fullscreen',

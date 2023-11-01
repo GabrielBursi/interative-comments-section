@@ -14,6 +14,11 @@ const meta: Meta<typeof CommentCard> ={
 		},
 		id: 1
 	},
+	argTypes: {
+		createdAt: {
+			control: 'date'
+		}
+	},
 	parameters: {
 		layout: 'fullscreen',
 		backgrounds: { default: 'dark' },

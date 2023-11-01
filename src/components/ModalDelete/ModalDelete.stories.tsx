@@ -5,7 +5,17 @@ const meta: Meta<typeof ModalDelete> ={
     title: 'ModalDelete',
     component: ModalDelete,
     args: {
-		isOpen: true
+		isOpen: true,
+		onClose: () => '',
+		onConfirm: () => '',
+	},
+	argTypes: {
+		onClose: {
+			type: 'symbol'
+		},
+		onConfirm: {
+			type: 'symbol'
+		}
 	}
 }
 export default meta
