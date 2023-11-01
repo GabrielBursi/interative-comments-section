@@ -35,7 +35,7 @@ export const CreateCommentCard = ({ avatar = DefaultAvatar.src, mentionedUser }:
 	};
 
 	useEffect(() => {
-		if (mentionedUser && commentRef.current)
+		if (mentionedUser)
 			handleFocus()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [mentionedUser, commentRef.current]);
