@@ -11,7 +11,7 @@ type ButtonProps = {
 }
 
 export const Overlay = styled.div<ModalProps>`
-    ${({ $isOpen }) => css`
+    ${({ theme, $isOpen }) => css`
 		display: ${$isOpen ? 'flex' : 'none'};
         justify-content: center;
 		align-items: center;
@@ -26,13 +26,14 @@ export const Overlay = styled.div<ModalProps>`
         opacity: ${$isOpen ? 1 : 0};
         pointer-events: ${$isOpen ? 'all' : 'none'};
         transition: opacity 0.3s ease-in-out;
+		z-index: ${theme.layers.overlay};
     `}
 `
 
 
 export const Modal = styled.div`
 	${({ theme }) => css`
-        z-index: ${theme.layers.menu};
+        z-index: ${theme.layers.modal};
 		background-color: ${theme.colors.white};
 		padding: ${theme.spacings.xsmall};
 		display: flex;
