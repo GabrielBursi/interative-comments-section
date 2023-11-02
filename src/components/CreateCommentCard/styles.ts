@@ -54,6 +54,7 @@ export const TextArea = styled.textarea`
 		transition: .2s;
 		color: ${theme.colors.secondaryText};
 		font-family: ${theme.font.family};
+		font-weight: ${theme.font.normal};
 
 		&::placeholder {
 			color: ${theme.colors.primaryText};
