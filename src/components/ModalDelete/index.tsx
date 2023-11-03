@@ -9,7 +9,7 @@ import { theme } from '../../styles'
 export const ModalDelete = ({ isOpen, onClose, onConfirm }: ModalDeleteProps) => {
 
 	const handleOverlayClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-		if (e.target === e.currentTarget) {
+		if (e.target === e.currentTarget && isOpen) {
 			onClose();
 		}
 	}
