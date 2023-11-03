@@ -73,7 +73,6 @@ export const FooterCard = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		flex-direction: column-reverse;
 
 		${media.lessThan('medium')`
 			flex-direction: column-reverse;

@@ -44,7 +44,7 @@ export const CommentCard = ({ isOwn = false, mentionedUser, content, createdAt, 
 
 	const handleFocus = () => {
 		if (commentRef.current) {
-			const textLength = contentText.length;
+			const textLength = contentText.length + 1;
 
 			commentRef.current.selectionStart = textLength;
 			commentRef.current.selectionEnd = textLength;
@@ -68,6 +68,7 @@ export const CommentCard = ({ isOwn = false, mentionedUser, content, createdAt, 
 					isOwn={isOwn}
 					id={id}
 					onEdit={() => setShowInput(true)}
+					isEditing={showInput}
 				/>
 				{showInput ?
 					<S.TextArea
