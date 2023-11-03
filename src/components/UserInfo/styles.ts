@@ -123,6 +123,12 @@ export const ButtonAction = styled.button<ButtonProps>`
 		color: ${variant === 'danger' ? theme.colors.red : theme.colors.primary};
 		transition: .4s;
 
+		&:disabled {
+			pointer-events: none;
+			cursor: not-allowed;
+			filter: saturate(30%);
+		}
+
 		&:hover {
 			color: ${darken(0.1, variant === 'danger' ? theme.colors.red : theme.colors.primary)};
 		}

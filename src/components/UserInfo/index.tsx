@@ -10,7 +10,7 @@ import { theme } from '../../styles'
 import AvatarDefault from '../../../public/images/avatars/default.png'
 import { ModalDelete } from '..'
 
-export const UserInfo = ({ createdAt, user, isOwn, id, onEdit }: UserInfoProps) => {
+export const UserInfo = ({ createdAt, user, isOwn, id, onEdit, isEditing=false }: UserInfoProps) => {
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -42,7 +42,7 @@ export const UserInfo = ({ createdAt, user, isOwn, id, onEdit }: UserInfoProps) 
 									<FaTrash size={15} />
 									<S.ButtonText>Excluir</S.ButtonText>
 								</S.ButtonAction>
-								<S.ButtonAction onClick={onEdit}>
+								<S.ButtonAction onClick={onEdit} disabled={isEditing}>
 									<FaPencil size={15} color={theme.colors.primary} />
 									<S.ButtonText>Editar</S.ButtonText>
 								</S.ButtonAction>
